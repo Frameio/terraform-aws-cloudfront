@@ -53,6 +53,12 @@ variable "comment" {
   default     = null
 }
 
+variable "continuous_deployment_policy_id" {
+  description = "Identifier of a continuous deployment policy. This argument should only be set on a production distribution."
+  type        = string
+  default     = null
+}
+
 variable "default_root_object" {
   description = "The object that you want CloudFront to return (for example, index.html) when an end user requests the root URL."
   type        = string
@@ -85,6 +91,12 @@ variable "price_class" {
 
 variable "retain_on_delete" {
   description = "Disables the distribution instead of deleting it when destroying the resource through Terraform. If this is set, the distribution needs to be deleted manually afterwards."
+  type        = bool
+  default     = false
+}
+
+variable "staging" {
+  description = "Configuration block defining a single cache behavior for the distribution"
   type        = bool
   default     = false
 }
